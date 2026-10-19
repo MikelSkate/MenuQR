@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.MikelCooper.menuqr"},{"l":"com.MikelCooper.menuqr.config"},{"l":"com.MikelCooper.menuqr.controller"},{"l":"com.MikelCooper.menuqr.model"},{"l":"com.MikelCooper.menuqr.repository"},{"l":"com.MikelCooper.menuqr.service"},{"l":"com.MikelCooper.menuqr.util"}];updateSearchResults();

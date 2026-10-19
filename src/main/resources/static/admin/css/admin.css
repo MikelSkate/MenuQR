@@ -1,0 +1,499 @@
+/* ==========================================
+    MENUQR ADMIN
+   ========================================== */
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+:root {
+    --color-fondo: #f0f0f0;
+    --color-superficie: #ffffff;
+    --color-primario: #1e293b;
+    --color-primario-suave: #334155;
+    --color-acento: #0f766e;
+    --color-acento-claro: #14b8a6;
+    --color-texto: #0f172a;
+    --color-texto-suave: #64748b;
+    --color-borde: #cecece;
+    --color-borde-suave: #6f6f6f3c;
+    --color-peligro: #dc2626;
+    --color-exito: #16a34a;
+    --sombra-sm: 0 2px 3px rgba(15, 23, 42, 0.202);
+    --sombra-md: 0 6px 10px rgba(15, 23, 42, 0.274);
+    --sombra-lg: 0 12px 32px rgba(15, 23, 42, 0.1);
+    --radio: 8px;
+    --radio-sm: 6px;
+    --transicion: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+ 
+/* ==========================================
+   NAVBAR SUPERIOR
+   ========================================== */
+.navbar {
+    background: var(--color-superficie);
+    border-bottom: 1px solid var(--color-borde);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--sombra-sm);
+}
+ 
+.navbar-contenido {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    height: 64px;
+}
+ 
+.navbar-logo {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    display: flex;
+    gap: 0.5rem;
+}
+ 
+.navbar-enlaces {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+    flex-wrap: wrap;
+}
+ 
+.navbar-enlaces a {
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radio-sm);
+    transition: var(--transicion);
+}
+ 
+.navbar-enlaces a:hover {
+    color: var(--color-primario);
+    font-weight: 700;
+}
+ 
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+   ========================================== */
+.contenedor {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+}
+ 
+.cabecera {
+    margin-bottom: 2.5rem;
+}
+ 
+.cabecera h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-texto);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.35rem;
+}
+ 
+.cabecera p {
+    color: var(--color-texto-suave);
+    font-size: 0.975rem;
+}
+ 
+/* ==========================================
+   BLOQUES DE SECCIÓN
+   ========================================== */
+.seccion-bloque {
+    background: var(--color-superficie);
+    border-radius: var(--radio);
+    padding: 1.5rem 1.75rem 1.75rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--sombra-sm);
+    border: 1px solid var(--color-borde);
+}
+ 
+.seccion-titulo {
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+ 
+.seccion-titulo::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: var(--color-acento);
+    border-radius: 2px;
+}
+ 
+/* ==========================================
+   TARJETAS DE NAVEGACIÓN
+   ========================================== */
+.secciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.85rem;
+}
+ 
+.seccion-card {
+    padding: 1.25rem;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transicion);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.seccion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-acento);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+ 
+.seccion-card:hover {
+    border-color: var(--color-acento);
+    box-shadow: var(--sombra-md);
+    transform: translateY(-2px);
+}
+ 
+.seccion-card:hover::before {
+    transform: scaleX(1);
+}
+ 
+.seccion-card:active {
+    transform: translateY(0);
+}
+ 
+.seccion-card h3 {
+    font-size: 0.975rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    letter-spacing: -0.01em;
+}
+ 
+.seccion-card p {
+    font-size: 0.825rem;
+    color: var(--color-texto-suave);
+    line-height: 1.4;
+}
+ 
+/* ==========================================
+   TABLAS
+   ========================================== */
+   
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-superficie);
+    border-radius: var(--radio);
+    overflow: hidden;
+    box-shadow: var(--sombra-sm);
+    border: 1px solid var(--color-borde);
+}
+ 
+th, td {
+    padding: 0.875rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-borde-suave);
+}
+ 
+th {
+    background: #fafbfc;
+    font-size: 0.8rem;
+    color: var(--color-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 800;
+}
+ 
+td {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+}
+ 
+tr:last-child td {
+    border-bottom: none;
+}
+ 
+tbody tr {
+    transition: background 0.15s;
+}
+ 
+tbody tr:hover {
+    background: #fafbfc;
+}
+ 
+td a {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+ 
+/* ==========================================
+   BOTONES
+   ========================================== */
+   
+button, .btn {
+    padding: 0.55rem 1.1rem;
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: var(--radio-sm);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transicion);
+    font-family: inherit;
+}
+ 
+button:hover, .btn:hover {
+    background: var(--color-primario-suave);
+    transform: translateY(-1px);
+}
+ 
+button:active, .btn:active {
+    transform: translateY(0);
+}
+ 
+.btn-primario {
+    background: var(--color-acento);
+}
+ 
+.btn-primario:hover {
+    background: var(--color-acento-claro);
+}
+ 
+.btn-borrar {
+    background: var(--color-peligro);
+}
+ 
+.btn-borrar:hover {
+    background: #b91c1c;
+}
+
+.btn-listo {
+    background-color: var(--color-exito);
+}
+
+.btn-listo:hover {
+    background-color:#10863c;
+}
+
+.btn-volver {
+    margin-top: 1.25rem;
+}
+ 
+/* Botón pequeño dentro de tablas */
+td button {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+}
+ 
+/* ==========================================
+   FORMULARIOS
+   ========================================== */
+form {
+    background: var(--color-superficie);
+    padding: 2rem;
+    border-radius: var(--radio);
+    border: 1px solid var(--color-borde);
+    box-shadow: var(--sombra-sm);
+    max-width: 600px;
+}
+ 
+input, select, textarea {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-sm);
+    font-size: 0.925rem;
+    font-family: inherit;
+    background: var(--color-superficie);
+    color: var(--color-texto);
+    transition: var(--transicion);
+}
+ 
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+ 
+.campo {
+    margin-bottom: 1.25rem;
+}
+ 
+.campo label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--color-texto);
+}
+ 
+form button[type="submit"] {
+    background: var(--color-acento);
+    margin-right: 0.5rem;
+}
+ 
+form button[type="submit"]:hover {
+    background: var(--color-acento-claro);
+}
+ 
+form a {
+    color: var(--color-texto-suave);
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.55rem 1.1rem;
+}
+ 
+form a:hover {
+    color: var(--color-texto);
+}
+
+/* ===== ALERGENOS (checkboxes) ===== */
+#lista-alergenos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-alergeno {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #6b4a3dcc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.15s;
+}
+
+.checkbox-alergeno:hover {
+    background: #e0d8cb;
+}
+
+.checkbox-alergeno input {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+ 
+/* ==========================================
+   ENCABEZADO DE PÁGINA CON BOTÓN
+   ========================================== */
+.contenedor h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-texto);
+    letter-spacing: -0.01em;
+}
+ 
+.contenedor > a:first-of-type {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    background: var(--color-acento);
+    color: white;
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radio-sm);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transicion);
+}
+ 
+.contenedor > a:first-of-type:hover {
+    background: var(--color-acento-claro);
+    transform: translateY(-1px);
+}
+ 
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar-contenido {
+        padding: 0 1rem;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+ 
+    .navbar-enlaces {
+        gap: 0.25rem;
+    }
+ 
+    .navbar-enlaces a {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+    }
+ 
+    .contenedor {
+        padding: 1.5rem 1rem 3rem;
+    }
+ 
+    .seccion-bloque {
+        padding: 1.25rem;
+    }
+ 
+    .secciones {
+        grid-template-columns: 1fr 1fr;
+    }
+ 
+    table {
+        font-size: 0.85rem;
+    }
+ 
+    th, td {
+        padding: 0.65rem 0.85rem;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .secciones {
+        grid-template-columns: 1fr;
+    }
+}
